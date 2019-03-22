@@ -3,10 +3,10 @@ import { Text, View } from 'react-native';
   
 interface Props {}
 
-export default function TM_FILENAME_BASE(props: Props) {
+export default function Main(props: Props) {
   return (
     <View>
-      <Text> First Component </Text>
+      <Text> textInComponent </Text>
     </View>
   );
 }

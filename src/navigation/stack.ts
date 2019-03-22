@@ -1,6 +1,13 @@
-import { Navigation } from "react-native-navigation";
-import App from "../../App";
+import { LayoutStack } from 'react-native-navigation';
 
-
-Navigation.registerComponent(`MainApp`, () => App);
-
+export function getRootStack(): LayoutStack {
+  return {
+    children: [
+      {
+        component: {
+          name: 'MainApp',
+        },
+      },
+    ],
+  };
+}

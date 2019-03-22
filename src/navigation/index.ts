@@ -1,4 +1,16 @@
-import {Navigation} from 'react-native-navigation';
+import { Navigation } from 'react-native-navigation';
 
-import App from '../../App';
+import { getRootStack } from './stack';
+import registerComponents from './registerComponents';
 
+export function setNavigation() {
+  registerComponents(Navigation);
+
+  Navigation.events().registerAppLaunchedListener(() => {
+    Navigation.setRoot({
+      root: {
+        stack: getRootStack(),
+      },
+    });
+  });
+}
