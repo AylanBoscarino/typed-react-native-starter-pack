@@ -1,20 +1,26 @@
 
-import React, { Component } from 'react';
+import React, { Component, ReactComponentElement, ReactNode, ComponentElement, FunctionComponent } from 'react';
 import { Provider } from 'react-redux';
 
 import store from './store';
-import { Options } from 'react-native-navigation';
+import { Options, OptionsOverlay } from 'react-native-navigation';
 import { NavComponent } from '../types';
+import { NavigableComponent } from './default/types';
 
-interface Props {}
+interface Props extends React.Props<any> {}
 
-interface State {}
+interface State extends React.ComponentState {}
 
 
-// TODO: type the Wraped Component as having an options object
-export function provideRedux (WrapedComponent: new() => NavComponent<Props, State>) {
+
+/**
+ * | This higher order component empowers your component with access to Redux
+ * | You must pass here any component you wish to set as a screen to RNN
+ * | With this HoC we can provide any component with Redux's state
+ */
+export function provideRedux (WrapedComponent: NavigableComponent) {
   class WraperComponent extends React.Component {
-    static options(props: Props) {}
+    static options: Options = {}
     render() {
       return (
         <Provider store={store}>
@@ -24,7 +30,10 @@ export function provideRedux (WrapedComponent: new() => NavComponent<Props, Stat
     }
   };
 
-  // TODO: make this error stop showing;
+  /** -------------------------------------------------------------------------------------------------
+   * | This line allows you to define an options objetc in the prototype of the Functional Component
+   * | This way you are able to set the navigation options provided by React Native Navigation
+   */
   WraperComponent.options = WrapedComponent.options;
   return WraperComponent;
 }
