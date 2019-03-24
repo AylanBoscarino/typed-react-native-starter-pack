@@ -1,11 +1,11 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-  
+
 interface Props {}
-/** ------------------------------------------------
- * | This component should be treated as a model
- * | Use it to write you reduxed componentes
- * | It uses the correct types for thunk
+/**
+ * This component should be seen as an example
+ * Use it to write your reduxed components
+ * It's integrate with thunk and RNN
  */
 export default function Main(props: Props) {
   return (
@@ -14,3 +14,5 @@ export default function Main(props: Props) {
     </View>
   );
 }
+
+Main.options = {};
