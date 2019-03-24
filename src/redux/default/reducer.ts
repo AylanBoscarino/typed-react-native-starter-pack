@@ -1,7 +1,11 @@
 import { DEFAULT_ACTION, DefaultState, DefaultAction } from './types';
-import { Action, Reducer, AnyAction } from 'redux';
 
-const initialState: DefaultState = {};
+/**
+ * The state of the Default Domain
+ */
+const initialState: DefaultState = {
+  defaultText: 'starting point'
+};
 
 /**
  * The reducer should recieve the State and the Action

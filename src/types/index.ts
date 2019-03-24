@@ -1,6 +1,7 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, ComponentClass } from 'react';
 import { Options } from 'react-native-navigation';
 import { DefaultState } from '../redux/default/types';
+import { ConnectedComponentClass } from 'react-redux';
 
 /**
  * The central state of the application
@@ -11,7 +12,7 @@ export interface StoreState {
   defaultDomain: DefaultState;
 }
 
-// A React's Functional Component that recieved React Native Navigation's Options object
-export interface NavigableComponent extends FunctionComponent {
+// A Redux connected Component that recieved React Native Navigation's Options object
+export interface NavigableComponent extends ConnectedComponentClass<any, {}> {
   options: Options;
 }

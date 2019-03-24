@@ -1,5 +1,5 @@
-import React from 'react';
-import { Provider } from 'react-redux';
+import React, { FunctionComponent, Component } from 'react';
+import { Provider, ConnectedComponentClass } from 'react-redux';
 
 import store from './store';
 import { Options } from 'react-native-navigation';

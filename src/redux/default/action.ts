@@ -9,12 +9,12 @@ import { ThunkAction } from 'redux-thunk';
  */
 export function defaultAction(
   args: any
-): ThunkAction<void, DefaultState, any, DefaultAction> {
+): ThunkAction<void, DefaultState, undefined, DefaultAction> {
   return async (dispatch: Dispatch<DefaultAction>) => {
     // Any asyncrnous side effect should be written here.
     dispatch({
       type: DEFAULT_ACTION,
-      payload: {}
+      payload: { defaultText: args }
     });
   };
 }
