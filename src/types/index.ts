@@ -1,4 +1,3 @@
-import { FunctionComponent, ComponentClass } from 'react';
 import { Options } from 'react-native-navigation';
 import { DefaultState } from '../redux/default/types';
 import { ConnectedComponentClass } from 'react-redux';

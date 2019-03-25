@@ -3,9 +3,10 @@ import { Dispatch } from 'react';
 import { ThunkAction } from 'redux-thunk';
 
 /**
- * The action dispatcher's return must be a ThunkAction wich generics should be:
- * The ThunkAction's return, the State, Thunk's extraArgument and the Action
- * The action dispatcher's param should be typed accordingly to it's use
+ * This is an example of an Action Dispatcher with the Redux-Thunk Middleware
+ * 
+ * @param args - An example of an dispatcher's argument
+ * @returns the thunk action that will actually dispatch to the Store
  */
 export function defaultAction(
   args: any
