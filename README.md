@@ -2,15 +2,26 @@
 
 ## A starter pack for React Native Applications with Typescript and Wix's React Native Navigation
 
-Starting a project in React Native can be a pain, particularly if we don't
+This starter pack tries to solve the problem of creating a new React Native project 
+from scratch and adding Navigation and State Management to the app. It gives you 
+a new app with these features configurated out of the box.
+
+
+### Summary
+
+ * [Starting a project](#starting)
+ * [Creating a Screen Component](#creating)
+
+Creating a new project in React Native can be a pain, particularly if we don't
 like using a general bundler like Expo due to the increase in the size of the
 app and the fact it can't use certain libraries like [Wix's React Native Navigation](https://wix.github.io/react-native-navigation/#/).
-It's even more tiresome when we wish to add Redux to our project because of the load of
+It's even more tiresome when we wish to add Redux to our project due the load of
 boilerplate it demands before we can start working with it.
 
 I built this starter pack just for that: to start my new React Native projects with
-Typescript using React Native Navigation and with Redux's boilerplate already
-done.
+Typescript using React Native Navigation and with Redux's boilerplate already done.
+
+ 
 
 ⚠️ At the moment only the Android environment is set and working. ⚠️
 
@@ -18,7 +29,7 @@ done.
 the documentation generate by [Typedoc](https://github.com/TypeStrong/typedoc)
 was the cherry on top of the cake. -->
 
-## Starting a project
+## <span id="starting">Starting a project</span>
 
 To use this starter pack we basically need three things;
    * Have installed the [Yarn package manager](https://yarnpkg.com/pt-BR/) as well as [NPM](https://www.npmjs.com/)
@@ -39,7 +50,7 @@ yarn install
 
 After that you can open your project on the text editor of your preference. 
 
-## Creating a Screen Component
+## <span id="creating">Creating a Screen Component</span>
 
 Part of the appeal of this starter pack is to create a project that's already 
 integrated with [Wix's React Native Navigation](https://wix.github.io/react-native-navigation/#/).
@@ -72,6 +83,8 @@ prototype, this is needed because RNN sees options as a static attribute of a
 class component. Through the options object we'll be able to set some configurations 
 of the component's navigation, such as the Navbar style.
 
+### Register the Component
+
 With the component created we need to register it to RNN so it can be accessed 
 as a Screen by the library, we'll do it adding to the default export of `registerComponents.ts` a new 
 call of `Navigation.registerComponent`:
@@ -98,6 +111,8 @@ export default function registerComponents(Navigation: NavigationRoot) {
 Note that we're passing it to `provideRedux` before returning it in the callback 
 passed as second argument of `registerComponent`, that's needed if we wish to 
 provide the component with Redux's state, which is usually the case.
+
+### Add the Component to Navigation
 
 Next we just need to add the component as part of our app's navigation. For 
 simplicity's sake we'll add as parte of the stack navigation shipped with the 
