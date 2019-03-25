@@ -3,7 +3,7 @@ import { Provider, ConnectedComponentClass } from 'react-redux';
 
 import store from './store';
 import { Options } from 'react-native-navigation';
-import { NavigableComponent } from '../types';
+import { NavigableComponent, NavigableFunctionalComponent } from '../types';
 
 /**
  * This higher order component empowers our components with access to Redux
@@ -13,7 +13,7 @@ import { NavigableComponent } from '../types';
  * @param WrapedComponent - The component that's going to be provided with Redux
  * @returns the component with access to Redux's Store
  */
-export function provideRedux(WrapedComponent: NavigableComponent) {
+export function provideRedux(WrapedComponent: NavigableComponent<Options> | NavigableFunctionalComponent<Options>) {
   class WraperComponent extends React.Component {
     static options: Options = {};
     render() {
