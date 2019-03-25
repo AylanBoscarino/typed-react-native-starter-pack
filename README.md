@@ -1,12 +1,10 @@
 # React Native Starter Pack
 
-## A starter pack for React Native Applications with Typescript and Wix's React Native Navigation
-
 This starter pack tries to solve the problem of creating a new React Native project
 from scratch and adding Navigation and State Management to the app. It gives you
 a new app with these features configurated out of the box.
 
-### Summary
+## Summary
 
 - [Starting a project](#starting)
 - [Creating a Screen Component](#creating)
@@ -306,12 +304,16 @@ In the end our component will have a shape kinda looking like this:
 ```jsx
 import React from 'react';
 import { Text, View } from 'react-native';
-import { NewComponentProps, NewComponentStateProps, NewComponentDispatchProps, NewComponentOwnProps } from './NewComponent.types';
+import {
+  NewComponentProps,
+  NewComponentStateProps,
+  NewComponentDispatchProps,
+  NewComponentOwnProps,
+} from './NewComponent.types';
 import { StoreState } from '../types';
 import { defaultAction } from '../redux/default/action';
 import { connect } from 'react-redux';
 
-  
 function NewComponent(props: NewComponentProps) {
   return (
     <View>
@@ -324,17 +326,24 @@ NewComponent.options = {};
 
 const mapStateToProps = (state: StoreState): NewComponentStateProps => ({
   defaultDomain: state.defaultDomain,
-})
+});
 
 const mapDispatchToProps: NewComponentDispatchProps = {
-  defaultAction
-}
+  defaultAction,
+};
 
-export default connect<NewComponentStateProps, NewComponentDispatchProps, NewComponentOwnProps, StoreState>(
+export default connect<
+  NewComponentStateProps,
+  NewComponentDispatchProps,
+  NewComponentOwnProps,
+  StoreState
+>(
   mapStateToProps,
   mapDispatchToProps
 )(NewComponent);
+
 ```
 
 At this point the component is fully connected to Redux's state management and 
-ready to be used.
+ready to be used, you can read the store's state and call the dispatchers mapped into the component's
+props.
