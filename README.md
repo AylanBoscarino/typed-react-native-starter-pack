@@ -211,6 +211,49 @@ that it should have access.
 For this example we'll use the `defaultDomain` of the store and the `defaultAction`
 that comes shipped with the starter pack.
 
+First we'll set that the `NewComponentStateProps` interface must have an attribute 
+`defaultDomain` that has the type of the domain's state `DefaultState`:
+
+```ts
+export interface NewComponentStateProps {
+  defaultDomain: DefaultState;
+}
+```
+
+Next well set that the `NewComponentDispatchProps` will have a method for the 
+`defaultAction` dispatcher, we must type its arguments accordingly to the dispatcher's ones,
+however the return should be void, since it's return will be intercepted by Redux Thunk:
+
+```ts
+export interface NewComponentDispatchProps {
+  defaultAction: (args: any) => void;
+}
+```
+
+Finally, we must set the `NewComponentOwnProps` interface types as well, however 
+we don't have any in this example, so it'll remain empty:
+
+```ts
+import { DefaultState } from "../redux/default/types";
+
+export interface NewComponentOwnProps {}
+
+export interface NewComponentStateProps {
+  defaultDomain: DefaultState;
+}
+
+export interface NewComponentDispatchProps {
+  defaultAction: (args: any) => void;
+}
+
+export type NewComponentProps = NewComponentDispatchProps &
+  NewComponentStateProps &
+  NewComponentOwnProps;
+```
+
+Next we need to create the `mapStateToProps` and `mapDispatchToProps` with the 
+correspondent types.
+
 ```jsx
 import React from 'react';
 import { Text, View } from 'react-native';
