@@ -12,7 +12,7 @@ I built this starter pack just for that: to start my new React Native projects w
 Typescript using React Native Navigation and with Redux's boilerplate already
 done.
 
-⚠️ At the moment only the Androis environment is set and working. ⚠️
+⚠️ At the moment only the Android environment is set and working. ⚠️
 
 <!-- Plus I added some docblocks here and there to clarify where i put everything and why,
 the documentation generate by [Typedoc](https://github.com/TypeStrong/typedoc)
@@ -68,7 +68,7 @@ a file NewComponent.tsx on src/components:
 +NewComponent.options = {};
 ```
 Notice the options propertie we're adding an options object to the component's
-prototype, this is needed because RNN sees options as an static attribute of a 
+prototype, this is needed because RNN sees options as a static attribute of a 
 class component. Through the options object we'll be able to set some configurations 
 of the component's navigation, such as the Navbar style.
 
@@ -95,12 +95,12 @@ export default function registerComponents(Navigation: NavigationRoot) {
 }
 
 ```
-Note that we're passing it to `provideRedux`  before returning it in the callback 
+Note that we're passing it to `provideRedux` before returning it in the callback 
 passed as second argument of `registerComponent`, that's needed if we wish to 
 provide the component with Redux's state, which is usually the case.
 
 Next we just need to add the component as part of our app's navigation. For 
-simplicity sake we'll add as parte of the stack navigation shipped with the 
+simplicity's sake we'll add as parte of the stack navigation shipped with the 
 starter pack in src/navigation/stack.ts.
 
 ```ts
