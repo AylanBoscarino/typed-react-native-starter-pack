@@ -14,11 +14,6 @@ export function getRootStack(): LayoutStack {
         component: {
           name: 'MainApp'
         }
-      },
-      {
-        component: {
-          name: 'NewComponent'
-        }
       }
     ]
   };
