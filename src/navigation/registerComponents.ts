@@ -1,6 +1,7 @@
 import { NavigationRoot } from 'react-native-navigation/lib/dist/Navigation';
 import Main from '../components/Main';
 import { provideRedux } from '../redux/provider';
+import NewComponent from '../components/NewComponent';
 
 /**
  * This function register the components that must be screens in React Native Navigation
@@ -11,4 +12,5 @@ import { provideRedux } from '../redux/provider';
  */
 export default function registerComponents(Navigation: NavigationRoot) {
   Navigation.registerComponent(`MainApp`, () => provideRedux(Main));
+  Navigation.registerComponent(`NewComponent`, () => provideRedux(NewComponent));
 }
